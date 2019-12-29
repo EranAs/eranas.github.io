@@ -5,7 +5,7 @@ permalink:           pretty
 relative_permalinks: false
 
 # Setup
-title:               ASSEO.TECH
+title:               'ASSEO.TECH'
 tagline:             'A Software Engineering and Architecture Blog'
 description:         'An autodidact enthusiastic software engineer'
 url:                 'https://eranas.github.io/'
