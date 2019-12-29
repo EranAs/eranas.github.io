@@ -45,6 +45,7 @@ All of these should be handled. don’t keep your eyes closed. don’t be naive.
 
 `Example 1 – Error codes`
 
+{% highlight c++ %} 
 `// config_api.h`
 
 
@@ -62,9 +63,10 @@ All of these should be handled. don’t keep your eyes closed. don’t be naive.
 `// @return true on success, false if not`
 
 `bool InstallConfig();`
+{% endhighlight %} 
 
 
-
+{% highlight c++ %} 
 `#include "config_api.h"`
 
 
@@ -92,7 +94,7 @@ All of these should be handled. don’t keep your eyes closed. don’t be naive.
   `}`
 
 `}`
-
+{% endhighlight %} 
 
 
 Other example would be the Linux famous [errno](http://man7.org/linux/man-pages/man3/errno.3.html).
