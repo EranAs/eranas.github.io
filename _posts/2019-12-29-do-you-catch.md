@@ -43,57 +43,53 @@ All of these should be handled. don’t keep your eyes closed. don’t be naive.
 
 **Error codes** way of error handling is the use of error codes / return values to let the caller function know if the operation was successful or not. and if not – based on the error code “explain” why it has failed.
 
-`Example 1 – Error codes`
+Example 1 – Error codes
 
 {% highlight c++ %} 
-`// config_api.h`
+// config_api.h`
+
+
+// Prepare configuration.
+
+// @return true on success, false if not
+
+bool PrepareConfig();
 
 
 
-`// Prepare configuration.`
+// Install configuration.
 
-`// @return true on success, false if not`
+// @return true on success, false if not
 
-`bool PrepareConfig();`
-
-
-
-`// Install configuration.`
-
-`// @return true on success, false if not`
-
-`bool InstallConfig();`
+bool InstallConfig();
 {% endhighlight %} 
 
 
-{% highlight c++ %} 
-`#include "config_api.h"`
+{% highlight c++ %}
+#include "config_api.h"
 
 
 
-`bool InstallDeviceConfig() {`
+bool InstallDeviceConfig() {
 
-  `if(!PrepareConfig()) {`
-
-​    `// handle the error..` 
-
-​    `return false;`
-
-  `}`
+  if(!PrepareConfig()) {
+  // handle the error..
+  return false;
+}
 
   
 
-  `if(!InstallConfig()) {`
+  if(!InstallConfig()) {
 
-​    `// handle the error..`
+    // handle the error..
 
-​    `// should I revert the work done by PrepareConfig now?..`
+    // should I revert the work done by PrepareConfig now?..
 
-​    `return false;`
+    return false;
 
-  `}`
+  }
 
-`}`
+}
 {% endhighlight %} 
 
 
@@ -109,51 +105,46 @@ Other example would be the Linux famous [errno](http://man7.org/linux/man-pages/
 
 
 
-`Example 2 – Exceptions`
+Example 2 – Exceptions
 
-`// config_api.h`
+// config_api.h
 
 
 
-`// Prepare configuration.`
+// Prepare configuration.
 
-`// @exception ConfigException - in case of preparation failure`
+// @exception ConfigException - in case of preparation failure
 
-`void PrepareConfig();`
+void PrepareConfig();
 
  
 
-`// Install configuration.`
+// Install configuration.
 
-`// @exception ConfigException - in case of installation failure`
+// @exception ConfigException - in case of installation failure
 
-`void InstallConfig();`
+void InstallConfig();
 
 
 
-`#include "config_api.h"` 
+#include "config_api.h"
 
 bool InstallDeviceConfig() {
 
-  `try {`
+    try {
+      PrepareConfig();
+      InstallConfig();
 
-​    `PrepareConfig();`
+    }
+    catch(const FileException&amp; ex) {
+    // handle specific error
+    }
 
-​    `InstallConfig();`
+  catch(const std::exception&amp; ex ) {
+    // handle other errors
 
-  `catch(const FileException&amp; ex) {`
-
-​    `// handle specific error`
-
-  `}`
-
-  `catch(const std::exception&amp; ex ) {`
-
-​    `// handle other errors`
-
-  `}`
-
-`}`
+  }
+}
 
 
 
