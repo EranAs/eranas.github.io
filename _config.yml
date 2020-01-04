@@ -1,22 +1,5 @@
-# Permalinks
-#
-# Use of `relative_permalinks` ensures post links from the index work properly.
-permalink:           pretty
-relative_permalinks: false
-
-# Setup
-title:               'ASSEO.TECH'
-tagline:             'A Software Engineering and Architecture Blog'
-description:         'An autodidact enthusiastic software engineer'
-url:                 'https://eranas.github.io/'
-baseurl:             ''
-paginate:            5
-
-# About/contact
-author:
-  name:              Eran Asseo
-  url:               https://www.linkedin.com/in/eran-asseo-54405b66/
-  email:             test@gmail.com
-
-# Custom vars
-version:             1.0.0
+title: Modernist theme
+description: Modernist is a theme for GitHub Pages.
+show_downloads: true
+google_analytics:
+theme: jekyll-theme-modernist
