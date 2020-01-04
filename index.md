@@ -1,4 +1,4 @@
----
+א---
 layout: default
 ---
 
@@ -22,12 +22,20 @@ This is a normal paragraph following a header. GitHub is a code hosting platform
 
 ### Header 3
 
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
+```c++
+// config_api.h
+
+/*
+ * Prepare configuration.
+ * @return true on success, false if not
+ */
+bool PrepareConfig();
+
+/*
+ * Install configuration.
+ * @return true on success, false if not
+ */
+bool InstallConfig();
 ```
 
 ```ruby
